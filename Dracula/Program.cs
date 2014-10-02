@@ -12,7 +12,7 @@ namespace Dracula
         {
             var dateToText = new Dictionary<string, List<StringBuilder>>(); 
 
-            using (var sr = new StreamReader(@"C:\Users\Reza\Documents\Dracula\Web\Dracula.htm"))
+            using (var sr = new StreamReader(@"..\Dracula.htm"))
             {
                 string line = "";
                 StringBuilder value = new StringBuilder();

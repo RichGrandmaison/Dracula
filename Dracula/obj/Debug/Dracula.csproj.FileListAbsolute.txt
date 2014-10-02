@@ -1,0 +1,6 @@
+C:\Users\Richard\Documents\GitHub\Dracula\Dracula\bin\Debug\Dracula.exe.config
+C:\Users\Richard\Documents\GitHub\Dracula\Dracula\obj\Debug\Dracula.exe
+C:\Users\Richard\Documents\GitHub\Dracula\Dracula\obj\Debug\Dracula.pdb
+C:\Users\Richard\Documents\GitHub\Dracula\Dracula\bin\Debug\Dracula.exe
+C:\Users\Richard\Documents\GitHub\Dracula\Dracula\bin\Debug\Dracula.pdb
+C:\Users\Richard\Documents\GitHub\Dracula\Dracula\obj\Debug\Dracula.csprojResolveAssemblyReference.cache

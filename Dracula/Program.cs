@@ -1,26 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.IO;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Security.AccessControl;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace Dracula
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             int counter = 0;
             int counter2 = 0;
+            var names = new List<string>();
+            var dates = new List<string>();
+
+            var dateToText = new Dictionary<string, List<StringBuilder>>();
 
             using (var sr = new StreamReader(@"../dracula.htm"))
             {
-                string line = "";
+                string line;
                 var value = new StringBuilder();
                 string lastValidDate = "";
                 string lastMedium = "";
@@ -44,16 +43,16 @@ namespace Dracula
                         {
                             lastValidDate = formattedDate;
                         }
-                        else
-                        {
-                            formattedDate = lastValidDate;
-                        }
-                        Console.WriteLine("+" + lastValidDate + " " + lastMedium);
+
+                        dates.Add("+" + lastValidDate + " " + lastMedium);
                         counter2++;
-                        if (value.Length == 0)
+
+                        if (value.Length != 0 )
                         {
-                            value.Clear();
+                            //Add to data.
+                            value = new StringBuilder();
                         }
+
                     }
                     //------------------END OF DATE IF STATEMENT ======= BEGIN OF TYPE SWITCH ----------------------------------------
                     else if (line.Contains("</small></h2>") || line.Contains("\"letra\""))
@@ -66,9 +65,31 @@ namespace Dracula
                         lastAuthor = FindAuthor(nameWithMedium);
                         
                         Console.WriteLine(lastValidDate + " " + lastMedium + " " + lastAuthor);
-                        counter++;
-                    }
 
+                        var lastValidName = Regex.Replace(nameWithMedium, lastMedium, "");
+                        
+                        names.Add(lastValidName);
+
+                        Console.WriteLine(lastValidDate + " " + lastMedium);
+                        counter++;
+
+                        if (value.Length != 0)
+                        {
+                            //Add to data
+                            if (dateToText.ContainsKey(lastValidName))
+                            {
+                                dateToText[lastValidName].Add(value);
+                            }
+                            else
+                            {
+                                var valueList = new List<StringBuilder>();
+                                valueList.Add(value);
+                                dateToText.Add(lastValidName, valueList);
+                            }
+                            value = new StringBuilder();
+                        }
+                    }
+                    else   //Text Data. 
                     {
                         value.AppendLine(line);
                     }
@@ -77,7 +98,8 @@ namespace Dracula
 
             Console.WriteLine(counter);
             Console.WriteLine(counter2);
-            Console.ReadLine();        
+
+            Console.ReadKey();        
         }
 
         private static string FindMedium(string nameWithMedium)

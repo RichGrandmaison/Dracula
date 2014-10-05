@@ -25,10 +25,11 @@ namespace Dracula
         {
             SqlCommand cmd = new SqlCommand();
             cmd.CommandType = CommandType.Text;
+            cmd.Connection = connection;
 
-            cmd.CommandText = "INSERT Region(Text, Author, Date, Medium, Recipient) VALUES (@text, @author, @date, @medium, @recipient)";
+            cmd.CommandText = "INSERT INTO draco (Text, Author, Date, Medium, Recipient) VALUES (@text, @author, @date, @medium, @recipient)";
 
-            cmd.Parameters.AddWithValue("@text", text);
+            cmd.Parameters.AddWithValue("@text", text.ToString());
             cmd.Parameters.AddWithValue("@author", author);
             cmd.Parameters.AddWithValue("@date", date);
             cmd.Parameters.AddWithValue("@medium", medium);

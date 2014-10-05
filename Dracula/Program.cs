@@ -189,6 +189,10 @@ namespace Dracula
             {
                 return "Dr. Seward";
             }
+            if (nameWithMedium.ToLower().Contains("dracula"))
+            {
+                return "Dracula";
+            }
             if (nameWithMedium.ToLower().Contains("lucy westenra"))
             {
                 return "Lucy Westenra";

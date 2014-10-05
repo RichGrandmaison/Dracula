@@ -15,15 +15,15 @@ namespace Dracula
     {
         static void Main(string[] args)
         {
-            var dateToText = new Dictionary<string, List<string>>();
-            using (var sr = new StreamReader(@"C:\Users\Richard\Documents\Visual Studio 2013\Projects\Dracula\Dracula\dracula.htm"))
+            int counter = 0;
+            int counter2 = 0;
+
+            using (var sr = new StreamReader(@"../dracula.htm"))
             {
                 string line = "";
                 var value = new StringBuilder();
-                string key = "";
                 string lastValidDate = "";
                 string lastMedium = "";
-                string lastCharacter = "";
 
                 while (!sr.EndOfStream)
                 {
@@ -47,7 +47,8 @@ namespace Dracula
                         {
                             formattedDate = lastValidDate;
                         }
-                        Console.WriteLine(lastValidDate + " " + lastMedium);
+                        Console.WriteLine("+" + lastValidDate + " " + lastMedium);
+                        counter2++;
                         if (value.Length == 0)
                         {
                             value.Clear();
@@ -56,57 +57,68 @@ namespace Dracula
                     //------------------END OF DATE IF STATEMENT ======= BEGIN OF TYPE SWITCH ----------------------------------------
                     else if (line.Contains("</small></h2>") || line.Contains("\"letra\""))
                     {
-                        var formMedSwitch = Regex.Replace(line, @"<[^>]*>", "");
+                        var nameWithMedium = Regex.Replace(line, @"<[^>]*>", "");
 
                         //TODO NEED TO FIGURE OUT HOW TO DEAL WITH TO/FROM
-                        if (formMedSwitch.Contains("Journal") || formMedSwitch.Contains("JOURNAL"))
-                        {
-                            lastMedium = "Journal";
-                        }
-                        if (formMedSwitch.Contains("DIARY") || formMedSwitch.Contains("Diary"))
-                        {
-                            lastMedium = "Diary";
-                        }
-                        if (formMedSwitch.Contains("LETTER") || formMedSwitch.Contains("Letter"))
-                        {
-                            lastMedium = "Letter";
-                        }
-                        if (formMedSwitch.Contains("MEMORANDUM") || formMedSwitch.Contains("Memorandum"))
-                        {
-                            lastMedium = "Memorandum";
-                        }
-                        if (formMedSwitch.Contains("Report"))
-                        {
-                            lastMedium = "Report";
-                        }
-                        if (formMedSwitch.Contains("Gazette")) //TODO NEED TO IDENTIFY WHICH GAZETTE!
-                        {
-                            lastMedium = "News Paper Cuttings";
-                        }
-                        if (formMedSwitch.Contains("Telegram"))
-                        {
-                            lastMedium = "Telegram";
-                        }
-                        if (formMedSwitch.Contains("Interview"))
-                        {
-                            lastMedium = "Interview";
-                        }
-                        if (formMedSwitch.Contains("Note"))
-                        {
-                            lastMedium = "Note";
-                        }
+                        
+                        lastMedium = FindMedium(nameWithMedium);
+                        
                         Console.WriteLine(lastValidDate + " " + lastMedium);
+                        counter++;
                     }
 
                     {
                         value.AppendLine(line);
                     }
                 }
-
             }
-            Console.ReadLine();
+
+            Console.WriteLine(counter);
+            Console.WriteLine(counter2);
+            Console.ReadLine();        
         }
 
+        private static string FindMedium(string nameWithMedium)
+        {
+            if (nameWithMedium.ToLower().Contains("journal"))
+            {
+                return "journal";
+            }
 
+            if (nameWithMedium.ToLower().Contains("diary") )
+            {
+                return "Diary";
+            }
+            if (nameWithMedium.ToLower().Contains("letter"))
+            {
+                return "Letter";
+            }
+            if (nameWithMedium.ToLower().Contains("memorandum"))
+            {
+                return "Memorandum";
+            }
+            if (nameWithMedium.ToLower().Contains("report"))
+            {
+                return "Report";
+            }
+            if (nameWithMedium.ToLower().Contains("gazette")) //TODO NEED TO IDENTIFY WHICH GAZETTE!
+            {
+                return "News Paper Cuttings";
+            }
+            if (nameWithMedium.ToLower().Contains("telegram"))
+            {
+                return "Telegram";
+            }
+            if (nameWithMedium.ToLower().Contains("interview"))
+            {
+                return "Interview";
+            }
+            if (nameWithMedium.ToLower().Contains("note"))
+            {
+                return "Note";
+            }
+
+            return "";
+        }
     }
 }

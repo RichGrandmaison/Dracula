@@ -4,3 +4,9 @@ C:\Users\Richard\Documents\GitHub\Dracula\Dracula\obj\Debug\Dracula.pdb
 C:\Users\Richard\Documents\GitHub\Dracula\Dracula\bin\Debug\Dracula.exe
 C:\Users\Richard\Documents\GitHub\Dracula\Dracula\bin\Debug\Dracula.pdb
 C:\Users\Richard\Documents\GitHub\Dracula\Dracula\obj\Debug\Dracula.csprojResolveAssemblyReference.cache
+C:\Users\Reza\Documents\Visual Studio 2013\Projects\Dracula\Dracula\bin\Debug\Dracula.exe.config
+C:\Users\Reza\Documents\Visual Studio 2013\Projects\Dracula\Dracula\bin\Debug\Dracula.exe
+C:\Users\Reza\Documents\Visual Studio 2013\Projects\Dracula\Dracula\bin\Debug\Dracula.pdb
+C:\Users\Reza\Documents\Visual Studio 2013\Projects\Dracula\Dracula\obj\Debug\Dracula.csprojResolveAssemblyReference.cache
+C:\Users\Reza\Documents\Visual Studio 2013\Projects\Dracula\Dracula\obj\Debug\Dracula.exe
+C:\Users\Reza\Documents\Visual Studio 2013\Projects\Dracula\Dracula\obj\Debug\Dracula.pdb

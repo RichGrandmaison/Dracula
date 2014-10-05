@@ -70,7 +70,7 @@ namespace Dracula
                         
                         names.Add(lastValidName);
 
-                        Console.WriteLine(lastValidDate + " " + lastMedium);
+                        Console.WriteLine(lastValidDate + " " + lastMedium + " " + lastAuthor);
                         counter++;
 
                         if (value.Length != 0)
@@ -106,7 +106,7 @@ namespace Dracula
         {
             if (nameWithMedium.ToLower().Contains("journal"))
             {
-                return "journal";
+                return "Journal";
             }
 
             if (nameWithMedium.ToLower().Contains("diary") )
@@ -154,43 +154,59 @@ namespace Dracula
         {
             if (nameWithMedium.ToLower().Contains("jonathan harker"))
             {
-                return "jonathan harker";
+                return "Jonathan Harker";
             }
-            if (nameWithMedium.ToLower().Contains("Seward"))
+            if (nameWithMedium.ToLower().Contains("seward"))
             {
-                return "dr. seward";
+                return "Dr. Seward";
             }
-            if (nameWithMedium.ToLower().Contains("Lucy Westerna"))
+            if (nameWithMedium.ToLower().Contains("lucy westenra"))
             {
-                return "lucy westerna";
+                return "Lucy Westenra";
             }
-            if (nameWithMedium.ToLower().Contains("Quincey P. Morris"))
+            if (nameWithMedium.ToLower().Contains("quincey p. morris"))
             {
-                return "quincey p. morris";
+                return "Quincey P. Morris";
             }
-            if (nameWithMedium.ToLower().Contains("Arthur Holmwood"))
+            if (nameWithMedium.ToLower().Contains("arthur holmwood"))
             {
-                return "arthur holmwood";
+                return "Arthur Holmwood";
             }
-            if (nameWithMedium.ToLower().Contains("Mina Harker"))
+            if (nameWithMedium.ToLower().Contains("mina harker"))
             {
-                return "mina harker";
+                return "Mina Harker";
             }
-            if (nameWithMedium.ToLower().Contains("Mitchell"))
+            if (nameWithMedium.ToLower().Contains("mitchell"))
             {
-                return "mitchell, sons and candy";
+                return "Mitchell, Sons & Candy";
             }
-            if (nameWithMedium.ToLower().Contains("Helsing"))
+            if (nameWithMedium.ToLower().Contains("helsing"))
             {
-                return "abraham van helsing";
+                return "Abraham Van Helsing";
             }
-            if (nameWithMedium.ToLower().Contains("Godalming"))
+            if (nameWithMedium.ToLower().Contains("godalming"))
             {
-                return "lord godalming";
+                return "Lord Godalming";
             }
-            if (nameWithMedium.ToLower().Contains("Patrick Hennessey"))
+            if (nameWithMedium.ToLower().Contains("patrick hennessey"))
             {
-                return "patrick hennessey";
+                return "Patrick Hennessey";
+            }
+            if (nameWithMedium.ToLower().Contains("sister agatha"))
+            {
+                return "Sister Agatha";
+            }
+            if (nameWithMedium.ToLower().Contains("wilhelmina"))
+            {
+                return "Wilhelmia Murray";
+            }
+            if (nameWithMedium.ToLower().Contains("billington"))
+            {
+                return "Samuel F. Billington & Sons, Solicitors";
+            }
+            if (nameWithMedium.ToLower().Contains("messrs"))
+            {
+                return "Messrs. Carter, Paterson & Co., London";
             }
             return "";        
         }

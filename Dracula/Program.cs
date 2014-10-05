@@ -57,6 +57,9 @@ namespace Dracula
                             lastValidDate = formattedDate;
                         }
 
+                        //Add Remainder of line to the Text Data
+                        value.AppendLine(Regex.Replace(line, "^.*</i>", ""));
+
                         dates.Add("+" + lastValidDate + " " + lastMedium);
                         counter2++;
 

@@ -24,6 +24,7 @@ namespace Dracula
                 var value = new StringBuilder();
                 string lastValidDate = "";
                 string lastMedium = "";
+                string lastAuthor = "";
 
                 while (!sr.EndOfStream)
                 {
@@ -62,8 +63,9 @@ namespace Dracula
                         //TODO NEED TO FIGURE OUT HOW TO DEAL WITH TO/FROM
                         
                         lastMedium = FindMedium(nameWithMedium);
+                        lastAuthor = FindAuthor(nameWithMedium);
                         
-                        Console.WriteLine(lastValidDate + " " + lastMedium);
+                        Console.WriteLine(lastValidDate + " " + lastMedium + " " + lastAuthor);
                         counter++;
                     }
 
@@ -87,6 +89,10 @@ namespace Dracula
 
             if (nameWithMedium.ToLower().Contains("diary") )
             {
+                if (nameWithMedium.ToLower().Contains("phonograph"))
+                {
+                    return "Phonograph Diary";
+                }
                 return "Diary";
             }
             if (nameWithMedium.ToLower().Contains("letter"))
@@ -103,7 +109,9 @@ namespace Dracula
             }
             if (nameWithMedium.ToLower().Contains("gazette")) //TODO NEED TO IDENTIFY WHICH GAZETTE!
             {
-                return "News Paper Cuttings";
+                if (nameWithMedium.ToLower().Contains("pall mall"))
+                    return "The Pall Mall Gazette";
+               return "The Westminster Gazette";
             }
             if (nameWithMedium.ToLower().Contains("telegram"))
             {
@@ -119,6 +127,50 @@ namespace Dracula
             }
 
             return "";
+        }
+        private static string FindAuthor(string nameWithMedium)
+        {
+            if (nameWithMedium.ToLower().Contains("jonathan harker"))
+            {
+                return "jonathan harker";
+            }
+            if (nameWithMedium.ToLower().Contains("Seward"))
+            {
+                return "dr. seward";
+            }
+            if (nameWithMedium.ToLower().Contains("Lucy Westerna"))
+            {
+                return "lucy westerna";
+            }
+            if (nameWithMedium.ToLower().Contains("Quincey P. Morris"))
+            {
+                return "quincey p. morris";
+            }
+            if (nameWithMedium.ToLower().Contains("Arthur Holmwood"))
+            {
+                return "arthur holmwood";
+            }
+            if (nameWithMedium.ToLower().Contains("Mina Harker"))
+            {
+                return "mina harker";
+            }
+            if (nameWithMedium.ToLower().Contains("Mitchell"))
+            {
+                return "mitchell, sons and candy";
+            }
+            if (nameWithMedium.ToLower().Contains("Helsing"))
+            {
+                return "abraham van helsing";
+            }
+            if (nameWithMedium.ToLower().Contains("Godalming"))
+            {
+                return "lord godalming";
+            }
+            if (nameWithMedium.ToLower().Contains("Patrick Hennessey"))
+            {
+                return "patrick hennessey";
+            }
+            return "";        
         }
     }
 }

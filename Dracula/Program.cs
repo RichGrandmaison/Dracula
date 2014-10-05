@@ -25,6 +25,7 @@ namespace Dracula
                 string lastValidDate = "";
                 string lastMedium = "";
                 string lastAuthor = "";
+                string lastReceiver = "";
                 
 
                 while (!sr.EndOfStream)
@@ -54,7 +55,7 @@ namespace Dracula
                             //Add to data.
                             value = new StringBuilder();
                         }
-                        Console.WriteLine(lastValidDate + " " + lastMedium + " " + lastAuthor);
+                        Console.WriteLine(lastValidDate + " " + lastMedium + " " + lastAuthor + " " + lastReceiver);
                     }
                     //------------------END OF DATE IF STATEMENT ======= BEGIN OF TYPE SWITCH ----------------------------------------
                     else if (line.Contains("</small></h2>") || line.Contains("\"letra\""))
@@ -65,23 +66,28 @@ namespace Dracula
                         
                         lastMedium = FindMedium(nameWithMedium);
                         //Check if lastMedium is a type which contains a Recipient)
-                        bool hasRecipient = lastMedium == "Letter" || lastMedium == "Telegraph" ||
+                        bool hasRecipient = lastMedium == "Letter" || lastMedium == "Telegram" ||
                                             lastMedium == "Report" || lastMedium == "Note"
                                             || lastMedium == "Phonograph Diary";
                         if (hasRecipient)
                         {      
                             string[] separator = new string[] {"to"};
                             string[] senderReceiver = nameWithMedium.Split(separator, StringSplitOptions.None);
-                            if(senderReceiver.Length > 1)
-                                Console.WriteLine("====== sender:" + senderReceiver[0] + " === receiver: " + senderReceiver[1]);
+                            lastAuthor = FindAuthor(senderReceiver[0]);
+                            if (senderReceiver.Length > 1)
+                                lastReceiver = FindAuthor(senderReceiver[1]);
                         }
-                        lastAuthor = FindAuthor(nameWithMedium, lastMedium);
+                        else
+                        {
+                            lastAuthor = FindAuthor(nameWithMedium);
+                            lastReceiver = "";
+                        }
                         
                         var lastValidName = Regex.Replace(nameWithMedium, lastMedium, "");
                         
                         names.Add(lastValidName);
 
-                        Console.WriteLine(lastValidDate + " " + lastMedium + " " + lastAuthor);
+                        Console.WriteLine(lastValidDate + " " + lastMedium + " " + lastAuthor + " " + lastReceiver);
                         counter++;
 
                         if (value.Length != 0)
@@ -169,7 +175,7 @@ namespace Dracula
 
             return "";
         }
-        private static string FindAuthor(string nameWithMedium, string lastMedium)
+        private static string FindAuthor(string nameWithMedium)
         {
          
             if (nameWithMedium.ToLower().Contains("jonathan harker"))

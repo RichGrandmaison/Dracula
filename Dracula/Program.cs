@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Reflection.Emit;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -58,7 +57,10 @@ namespace Dracula
                         }
 
                         //Add Remainder of line to the Text Data
-                        value.AppendLine(Regex.Replace(line, "^.*</i>", ""));
+                        string remainder = Regex.Replace(line, "^.*</i>", "");
+
+                        if (!String.IsNullOrEmpty(remainder))
+                            value.AppendLine(Regex.Replace(line, "^.*</i>", ""));
 
                         dates.Add("+" + lastValidDate + " " + lastMedium);
                         counter2++;

@@ -21,7 +21,7 @@ namespace Dracula
             connection = null;
         }
 
-        public void Add(StringBuilder text, string author, DateTime date, String medium, string recipient = "" )
+        public void Add(StringBuilder text, string author, string date, String medium, string recipient = "" )
         {
             SqlCommand cmd = new SqlCommand();
             cmd.CommandType = CommandType.Text;

@@ -39,7 +39,7 @@ namespace Dracula
                         if (textDataParsing) //Was parsing text
                         {
                             textDataParsing = false;
-                            db.Add(value, lastAuthor, DateTime.Parse("2014-01-01"/*lastValidDate*/), lastMedium, "Add Recipient");
+                            db.Add(value, lastAuthor, lastValidDate, lastMedium, lastReceiver);
                             value = new StringBuilder();
                         }
 
@@ -74,7 +74,7 @@ namespace Dracula
                         if (textDataParsing) //Was parsing text
                         {
                             textDataParsing = false;
-                            db.Add(value, lastAuthor, DateTime.Parse(lastValidDate), lastMedium, "Add Recipient");
+                            db.Add(value, lastAuthor, lastValidDate, lastMedium, lastReceiver);
                             value = new StringBuilder();
                         }
 

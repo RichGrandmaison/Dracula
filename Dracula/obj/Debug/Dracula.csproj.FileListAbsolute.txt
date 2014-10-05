@@ -10,3 +10,5 @@ C:\Users\Reza\Documents\Visual Studio 2013\Projects\Dracula\Dracula\bin\Debug\Dr
 C:\Users\Reza\Documents\Visual Studio 2013\Projects\Dracula\Dracula\obj\Debug\Dracula.csprojResolveAssemblyReference.cache
 C:\Users\Reza\Documents\Visual Studio 2013\Projects\Dracula\Dracula\obj\Debug\Dracula.exe
 C:\Users\Reza\Documents\Visual Studio 2013\Projects\Dracula\Dracula\obj\Debug\Dracula.pdb
+C:\Users\Reza\Documents\Visual Studio 2013\Projects\Dracula\Dracula\bin\Debug\draculaBase.mdf
+C:\Users\Reza\Documents\Visual Studio 2013\Projects\Dracula\Dracula\bin\Debug\draculaBase_log.ldf

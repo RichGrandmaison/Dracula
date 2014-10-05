@@ -15,7 +15,10 @@ namespace Dracula
             var names = new List<string>();
             var dates = new List<string>();
 
-            var dateToText = new Dictionary<string, List<StringBuilder>>();
+            var textDataParsing = false;
+
+            DBConnection db = new DBConnection();
+            db.ConnectToDatabase();
 
             using (var sr = new StreamReader(@"../dracula.htm"))
             {
@@ -31,6 +34,13 @@ namespace Dracula
 
                     if (line.StartsWith("<p><i>"))
                     {
+                        if (textDataParsing) //Was parsing text
+                        {
+                            textDataParsing = false;
+                            db.Add(value, lastAuthor, DateTime.Parse(lastValidDate), lastMedium, "Add Recipient");
+                            value = new StringBuilder();
+                        }
+
                         string formattedDate = Regex.Replace(line, "</i>.*$", "");
                         formattedDate = Regex.Replace(formattedDate, "^<p><i>", "");
                         if (Regex.IsMatch(formattedDate, @"\.[A-Za-z\s]*\.$"))
@@ -46,17 +56,17 @@ namespace Dracula
 
                         dates.Add("+" + lastValidDate + " " + lastMedium);
                         counter2++;
-
-                        if (value.Length != 0 )
-                        {
-                            //Add to data.
-                            value = new StringBuilder();
-                        }
-
                     }
                     //------------------END OF DATE IF STATEMENT ======= BEGIN OF TYPE SWITCH ----------------------------------------
                     else if (line.Contains("</small></h2>") || line.Contains("\"letra\""))
                     {
+                        if (textDataParsing) //Was parsing text
+                        {
+                            textDataParsing = false;
+                            db.Add(value, lastAuthor, DateTime.Parse(lastValidDate), lastMedium, "Add Recipient");
+                            value = new StringBuilder();
+                        }
+
                         var nameWithMedium = Regex.Replace(line, @"<[^>]*>", "");
 
                         //TODO NEED TO FIGURE OUT HOW TO DEAL WITH TO/FROM
@@ -72,25 +82,10 @@ namespace Dracula
 
                         Console.WriteLine(lastValidDate + " " + lastMedium);
                         counter++;
-
-                        if (value.Length != 0)
-                        {
-                            //Add to data
-                            if (dateToText.ContainsKey(lastValidName))
-                            {
-                                dateToText[lastValidName].Add(value);
-                            }
-                            else
-                            {
-                                var valueList = new List<StringBuilder>();
-                                valueList.Add(value);
-                                dateToText.Add(lastValidName, valueList);
-                            }
-                            value = new StringBuilder();
-                        }
                     }
                     else   //Text Data. 
                     {
+                        textDataParsing = true;
                         value.AppendLine(line);
                     }
                 }
@@ -100,6 +95,11 @@ namespace Dracula
             Console.WriteLine(counter2);
 
             Console.ReadKey();        
+        }
+
+        private static void AddToDatabase(DBConnection db)
+        {
+            throw new NotImplementedException();
         }
 
         private static string FindMedium(string nameWithMedium)

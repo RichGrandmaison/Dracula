@@ -53,3 +53,6 @@ Dracula/draculaBase.mdf
 *.suo
 *.exe
 *.pdb
+*.suo
+*.exe
+*.pdb

@@ -60,7 +60,11 @@ namespace Dracula
                         string remainder = Regex.Replace(line, "^.*</i>", "");
 
                         if (!String.IsNullOrEmpty(remainder))
-                            value.AppendLine(Regex.Replace(line, "^.*</i>", ""));
+                        {
+                            string appendLine = Regex.Replace(line, "^.*</i>", "");
+                            appendLine = Regex.Replace(appendLine, @"<[^>]*>", "");
+                            value.AppendLine(appendLine);
+                        }
 
                         dates.Add("+" + lastValidDate + " " + lastMedium);
                         counter2++;

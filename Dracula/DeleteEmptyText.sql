@@ -1,0 +1,2 @@
+﻿DELETE FROM draco
+WHERE Text=CHAR(13)+CHAR(10);

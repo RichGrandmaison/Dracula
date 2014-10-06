@@ -111,7 +111,8 @@ namespace Dracula
                     else   //Text Data. 
                     {
                         textDataParsing = true;
-                        value.AppendLine(line);
+                        var appendLine = Regex.Replace(line, @"<[^>]*>", "");
+                        value.AppendLine(appendLine);
                     }
                 }
             }

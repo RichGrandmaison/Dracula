@@ -46,7 +46,7 @@ namespace Dracula
         {
             try
             {
-                connection = new SqlConnection(@"Data Source=(LocalDB)\v11.0;AttachDbFilename='C:\Users\Reza\Documents\Visual Studio 2013\Projects\Dracula\Dracula\draculaBase.mdf';Integrated Security=True");
+                connection = new SqlConnection(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\Richard\Documents\GitHub\Dracula\Dracula\draculaBase.mdf;Integrated Security=True");
 
                 connection.Open();
                 return "Connected";

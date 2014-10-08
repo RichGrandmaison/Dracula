@@ -1,11 +1,3 @@
-C:\Users\Reza\Documents\Visual Studio 2013\Projects\Dracula\Dracula\bin\Debug\draculaBase.mdf
-C:\Users\Reza\Documents\Visual Studio 2013\Projects\Dracula\Dracula\bin\Debug\draculaBase_log.ldf
-C:\Users\Reza\Documents\Visual Studio 2013\Projects\Dracula\Dracula\bin\Debug\Dracula.exe.config
-C:\Users\Reza\Documents\Visual Studio 2013\Projects\Dracula\Dracula\bin\Debug\Dracula.exe
-C:\Users\Reza\Documents\Visual Studio 2013\Projects\Dracula\Dracula\bin\Debug\Dracula.pdb
-C:\Users\Reza\Documents\Visual Studio 2013\Projects\Dracula\Dracula\obj\Debug\Dracula.exe
-C:\Users\Reza\Documents\Visual Studio 2013\Projects\Dracula\Dracula\obj\Debug\Dracula.pdb
-C:\Users\Reza\Documents\Visual Studio 2013\Projects\Dracula\Dracula\obj\Debug\Dracula.csprojResolveAssemblyReference.cache
 C:\Users\Richard\Documents\GitHub\Dracula\Dracula\bin\Debug\draculaBase.mdf
 C:\Users\Richard\Documents\GitHub\Dracula\Dracula\bin\Debug\draculaBase_log.ldf
 C:\Users\Richard\Documents\GitHub\Dracula\Dracula\bin\Debug\Dracula.exe.config
@@ -14,3 +6,10 @@ C:\Users\Richard\Documents\GitHub\Dracula\Dracula\bin\Debug\Dracula.pdb
 C:\Users\Richard\Documents\GitHub\Dracula\Dracula\obj\Debug\Dracula.exe
 C:\Users\Richard\Documents\GitHub\Dracula\Dracula\obj\Debug\Dracula.pdb
 C:\Users\Richard\Documents\GitHub\Dracula\Dracula\obj\Debug\Dracula.csprojResolveAssemblyReference.cache
+C:\Users\Reza\documents\visual studio 2013\Projects\Dracula\Dracula\bin\Debug\draculaBase.mdf
+C:\Users\Reza\documents\visual studio 2013\Projects\Dracula\Dracula\bin\Debug\draculaBase_log.ldf
+C:\Users\Reza\documents\visual studio 2013\Projects\Dracula\Dracula\bin\Debug\Dracula.exe.config
+C:\Users\Reza\documents\visual studio 2013\Projects\Dracula\Dracula\bin\Debug\Dracula.exe
+C:\Users\Reza\documents\visual studio 2013\Projects\Dracula\Dracula\bin\Debug\Dracula.pdb
+C:\Users\Reza\documents\visual studio 2013\Projects\Dracula\Dracula\obj\Debug\Dracula.exe
+C:\Users\Reza\documents\visual studio 2013\Projects\Dracula\Dracula\obj\Debug\Dracula.pdb

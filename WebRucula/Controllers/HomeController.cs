@@ -26,10 +26,5 @@ namespace WebRucula.Controllers
 
             return View();
         }
-
-        public ActionResult Dracula()
-        {
-            return View();
-        }
     }
 }

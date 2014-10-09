@@ -59,7 +59,7 @@ namespace WebRucula.Controllers
         }
 
         // GET: Dracula/Edit/5
-        public ActionResult Edit(int? id)
+        /*public ActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -114,6 +114,8 @@ namespace WebRucula.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        */
+
 
         protected override void Dispose(bool disposing)
         {
